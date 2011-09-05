@@ -1,0 +1,173 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3ED19982-3C23-4B7D-BE81-D40846A6CB16}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>NHibernate.Burrow</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>NHibernate.Burrow</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SignAssembly>false</SignAssembly>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>bin\Release\NHibernate.Burrow.XML</DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=1.0.0.3, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NHibernate\net\2.0\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NHibernate\net\2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.0.0.1001, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NHibernate\net\2.0\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\ConfigurationFactory.cs" />
+    <Compile Include="Configuration\Util.cs" />
+    <Compile Include="Exceptions\ChangeConfigWhenRunningException.cs" />
+    <Compile Include="Exceptions\ConversationAlreadyCancelledException.cs" />
+    <Compile Include="Exceptions\FrameworkAlreadyShutDownException.cs" />
+    <Compile Include="Exceptions\IllegalFlushModeException.cs" />
+    <Compile Include="Exceptions\IncorrectConversationSpanStatusException.cs" />
+    <Compile Include="Exceptions\IncorrectTransactionStatusException.cs" />
+    <Compile Include="Exceptions\PersistenceUnitsNotReadyException.cs" />
+    <Compile Include="IConfigurator.cs" />
+    <Compile Include="IInterceptorFactory.cs" />
+    <Compile Include="Impl\ConversationWithManagedTransactionImpl.cs" />
+    <Compile Include="Impl\FrameworkEnvironment.cs" />
+    <Compile Include="IFrameworkEnvironment.cs" />
+    <Compile Include="Impl\ITransaction.cs" />
+    <Compile Include="Impl\LogFactory.cs" />
+    <Compile Include="Impl\ConversationWithManualTransactionImpl.cs" />
+    <Compile Include="Impl\TransactionImpl.cs" />
+    <Compile Include="Impl\ManualTransactionManagerImpl.cs" />
+    <Compile Include="TransactionStrategy.cs" />
+    <Compile Include="Impl\VoidTransaction.cs" />
+    <Compile Include="IPersistenceUnitCfg.cs" />
+    <Compile Include="IBurrowConfig.cs" />
+    <Compile Include="Configuration\NHibernateBurrowCfgSection.cs" />
+    <Compile Include="Configuration\PersistenceUnitElement.cs" />
+    <Compile Include="Configuration\PersistenceUnitElementCollection.cs" />
+    <Compile Include="Impl\ConversationExpirationCheckerByTimeout.cs" />
+    <Compile Include="Impl\ConversationExpirationCheckerFactory.cs" />
+    <Compile Include="DataContainers\GuidDataContainer.cs" />
+    <Compile Include="DataContainers\LocalSafe.cs" />
+    <Compile Include="Exceptions\NoSuitableContructorException.cs" />
+    <Compile Include="Exceptions\PropertyNotFoundException.cs" />
+    <Compile Include="Exceptions\TypeNotFoundException.cs" />
+    <Compile Include="Exceptions\UnableToGetPersistenceUnitException.cs" />
+    <Compile Include="BurrowFramework.cs" />
+    <Compile Include="Impl\AbstractConversation.cs" />
+    <Compile Include="ConversationalData.cs" />
+    <Compile Include="Impl\ConversationPool.cs" />
+    <Compile Include="Exceptions\ConversationUnavailableException.cs" />
+    <Compile Include="Exceptions\ConversationUninitializedException.cs" />
+    <Compile Include="Exceptions\DomainContextUninitializedException.cs" />
+    <Compile Include="Impl\WorkSpace.cs" />
+    <Compile Include="Exceptions\GeneralException.cs" />
+    <Compile Include="IConversation.cs" />
+    <Compile Include="IConversationExpirationChecker.cs" />
+    <Compile Include="Impl\SpanStrategy.cs" />
+    <Compile Include="Impl\PersistenceUnit.cs" />
+    <Compile Include="Impl\PersistenceUnitRepo.cs" />
+    <Compile Include="Exceptions\BurrowException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Impl\SessionAndTransactionManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ITransactionManager.cs" />
+    <Compile Include="Util\EntityLoader.cs" />
+    <Compile Include="Util\InstanceLoader.cs" />
+    <Compile Include="Util\SchemaUtil.cs" />
+    <Compile Include="Util\WebUtil.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,95 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3DBB9568-5688-4442-8ECA-BD216E807C8D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NHibernate.Burrow.WebUtil</RootNamespace>
+    <AssemblyName>NHibernate.Burrow.WebUtil</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\NHibernate.Burrow.WebUtil.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=1.0.0.3, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NHibernate\net\2.0\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NHibernate\net\2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\System.Web.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\IgnoreStatefulFields.cs" />
+    <Compile Include="Attributes\HasStatefulField.cs" />
+    <Compile Include="Attributes\WorkSpaceInfo.cs" />
+    <Compile Include="Controls\BurrowLink.cs" />
+    <Compile Include="Exceptions\BurrowWebUtilException.cs" />
+    <Compile Include="Exceptions\DuplicatedGlobalHolderException.cs" />
+    <Compile Include="Impl\StatefulFieldSaver.cs" />
+    <Compile Include="IStatefulFieldsControl.cs" />
+    <Compile Include="Impl\ConversationalDataVSFInterceptor.cs" />
+    <Compile Include="Attributes\ConversationalField.cs" />
+    <Compile Include="Impl\ConversationStatePageModule.cs" />
+    <Compile Include="Impl\GlobalPlaceHolder.cs" />
+    <Compile Include="Impl\LogFactory.cs" />
+    <Compile Include="Impl\StatefulFieldsControlFilter.cs" />
+    <Compile Include="Impl\WorkSpaceSnifferByAttribute.cs" />
+    <Compile Include="IWorkSpaceNameSniffer.cs" />
+    <Compile Include="Impl\StatefulFieldPageModule.cs" />
+    <Compile Include="Attributes\EntityFieldDeletionSafe.cs" />
+    <Compile Include="Attributes\EntityField.cs" />
+    <Compile Include="Impl\EntityVSFInterceptor.cs" />
+    <Compile Include="IStatefulFieldInterceptor.cs" />
+    <Compile Include="Impl\StatefulFieldLoader.cs" />
+    <Compile Include="Attributes\StatefulField.cs" />
+    <Compile Include="Impl\StatefulFieldProcessor.cs" />
+    <Compile Include="WebUtilHTTPModule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NHibernate.Burrow\NHibernate.Burrow.csproj">
+      <Project>{3ED19982-3C23-4B7D-BE81-D40846A6CB16}</Project>
+      <Name>NHibernate.Burrow</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

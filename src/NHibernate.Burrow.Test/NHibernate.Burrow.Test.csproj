@@ -1,0 +1,132 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D2954D0B-C830-417B-A0D4-70AD81043B71}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NHibernate.Burrow.Test</RootNamespace>
+    <AssemblyName>NHibernate.Burrow.Test</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>3</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NHibernate\net\2.0\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy2, Version=2.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NHibernate\net\2.0\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.0.3, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NHibernate\net\2.0\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NHibernate\net\2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.0.0.1001, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NHibernate\net\2.0\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.0.1002, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NHibernate\net\2.0\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.2.8.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NHibernate\net\2.0\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdvNHFunctionTests\ManualSessionFeature.cs" />
+    <Compile Include="ConfigurationTests\ConfigReadWriteFixture.cs" />
+    <Compile Include="ConfigurationTests\ConfiguratorFixture.cs" />
+    <Compile Include="ConverstationTests\ConversationalDataFixture.cs" />
+    <Compile Include="ConverstationTests\ConversationManagementFixture.cs" />
+    <Compile Include="ConverstationTests\LongBusinessTransactionFixture.cs" />
+    <Compile Include="ConverstationTests\WrapUrlFixture.cs" />
+    <Compile Include="DataContainerTests\GuidDataContainerFixture.cs" />
+    <Compile Include="FrameworkEnvironment\FuctionFixture.cs" />
+    <Compile Include="FrameworkEnvironment\ShutDownFixture.cs" />
+    <Compile Include="ManualTransaction\ManualTransactionFexture.cs" />
+    <Compile Include="MockEntities\MockEntity.cs" />
+    <Compile Include="MockEntities\MockEntityDAO.cs" />
+    <Compile Include="Concurrency\SessionConcurency.cs" />
+    <Compile Include="MultiDB\MockEntity2.cs" />
+    <Compile Include="MultiDB\MockEntity2DAO.cs" />
+    <Compile Include="MultiDB\MultiDBFixture.cs" />
+    <Compile Include="WorkSpace\MultipleWorkSpaceTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NHibernate.Burrow.TestUtil\NHibernate.Burrow.TestUtil.csproj">
+      <Project>{32112377-D3FC-4A1C-8C90-BBDFF166ED3B}</Project>
+      <Name>NHibernate.Burrow.TestUtil</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NHibernate.Burrow\NHibernate.Burrow.csproj">
+      <Project>{3ED19982-3C23-4B7D-BE81-D40846A6CB16}</Project>
+      <Name>NHibernate.Burrow</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MockEntities\MockEntity.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BurrowTest.cfg.xml.template">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MultiDB\FirstPU.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="MultiDB\MockEntity2.hbm.xml" />
+    <Content Include="MultiDB\SecondPU.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>if exist BurrowTest.cfg.xml (del BurrowTest.cfg.xml)
+if not exist "$(ProjectDir)BurrowTest.cfg.xml" (copy "$(ProjectDir)BurrowTest.cfg.xml.template" "$(ProjectDir)BurrowTest.cfg.xml")
+if exist "$(ProjectDir)BurrowTest.cfg.xml" (copy "$(ProjectDir)BurrowTest.cfg.xml" "BurrowTest.cfg.xml")
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>

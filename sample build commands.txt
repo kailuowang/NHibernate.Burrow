@@ -1,0 +1,23 @@
+## 
+##	This file contains sample commands to build NHibernate.Burrow using the build files.
+##	It should be run from the nhibernate directory that contains this file.
+##	
+##	If you are going to run the Test make sure to set the connection information.
+##
+##
+
+
+NAnt -D:project.config=release clean build >output-release-build.log
+
+NAnt clean build >output-debug-build.log
+
+NAnt -D:project.config=release clean package >output-release-package.log
+
+#To test ( you need to have two Database named "NHibernateBurrow" and "NHibernateBurrow2" in your RMDBS )
+# During the test, some IE browser will be open and closed your mouse might freeze. 
+NAnt -D:project.config=debug test >output-test.log
+
+
+
+
+
